@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Gen</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PDF Gen</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  <form id="pdfForm">
-    <label>
-      Show Name Box:
-      <input type="radio" name="isName" value="true" />Yes
-      <input type="radio" name="isName" value="false" checked />No
-    </label>
-    <br />
-    <label>
-      Show Roll Box:
-      <input type="radio" name="isRoll" value="true" />Yes
-      <input type="radio" name="isRoll" value="false" checked />No
-    </label>
-    <br />
-    <label>
-      Roll Digit (if roll box is visible):
-      <input type="text" name="rollDigit" value="5" />
-    </label>
-    <br />
-    <label>
-      Number of Question Set:
-      <input type="text" name="setCount" value="1" />
-    </label>
-    <br />
-    <label>
-      Number of Questions:
-      <input type="text" name="questionsCount" value="15" />
-    </label>
-    <br />
-    <button type="button" id="downloadPdf">Download PDF</button>
-  </form>
-  <script src="script.js"></script>
-</body>
-
+  <body>
+    <form id="pdfForm">
+      <label>
+        Show Name Box:
+        <input type="radio" name="isName" value="true" checked />Yes
+        <input type="radio" name="isName" value="false" />No
+      </label>
+      <br />
+      <label>
+        Show Roll Box:
+        <input type="radio" name="isRoll" value="true" checked />Yes
+        <input type="radio" name="isRoll" value="false" />No
+      </label>
+      <br />
+      <label>
+        Roll Digit (if roll box is visible):
+        <input type="text" name="rollDigit" value="11" />
+      </label>
+      <br />
+      <label>
+        Number of Question Set:
+        <input type="text" name="setCount" value="4" />
+      </label>
+      <br />
+      <label>
+        Number of Questions:
+        <input type="text" name="questionsCount" value="35" />
+      </label>
+      <br />
+      <button type="button" id="downloadPdf">Download PDF</button>
+    </form>
+    <script src="script.js"></script>
+  </body>
 </html>
