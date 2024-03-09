@@ -28,7 +28,7 @@ document
       parseInt(data.questionsCount) <= 100
     ) {
       fetch(
-        "https://c3abb519-27fd-46fd-ac90-0174997a8c66-00-1wsfwfuwujsq3.kirk.replit.dev/generate-pdf",
+        "https://sadman30102001.pythonanywhere.com/generate-pdf",
         {
           method: "POST",
           headers: {
