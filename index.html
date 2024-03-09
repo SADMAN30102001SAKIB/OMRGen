@@ -10,6 +10,34 @@
   <body>
     <form id="pdfForm">
       <label>
+        Instutute Name:
+        <input
+          type="text"
+          name="iName"
+          placeholder="Rajshahi University of Engineering & Technology"
+        />
+      </label>
+      <label>
+        Underline:
+        <input type="radio" name="isIUnderline" value="true" checked />Yes
+        <input type="radio" name="isIUnderline" value="false" />No
+      </label>
+      <br />
+      <label>
+        Paper Name:
+        <input
+          type="text"
+          name="pName"
+          placeholder="Complex Variable, Partial Differential Equation and Harmonic Analysis"
+        />
+      </label>
+      <label>
+        Underline:
+        <input type="radio" name="isPUnderline" value="true" checked />Yes
+        <input type="radio" name="isPUnderline" value="false" />No
+      </label>
+      <br />
+      <label>
         Show Name Box:
         <input type="radio" name="isName" value="true" checked />Yes
         <input type="radio" name="isName" value="false" />No
@@ -17,12 +45,16 @@
       <br />
       <label>
         Show Roll Box:
-        <input type="radio" name="isRoll" value="true" checked />Yes
-        <input type="radio" name="isRoll" value="false" />No
+        <input
+          type="radio"
+          name="isRoll"
+          value="true"
+          checked
+          id="rollBox1"
+        />Yes <input type="radio" name="isRoll" value="false" id="rollBox2" />No
       </label>
-      <br />
-      <label>
-        Roll Digit (if roll box is visible):
+      <label id="rollDigit">
+        Roll Digit:
         <input type="text" name="rollDigit" value="11" />
       </label>
       <br />
@@ -33,7 +65,7 @@
       <br />
       <label>
         Number of Questions:
-        <input type="text" name="questionsCount" value="35" />
+        <input type="text" name="questionsCount" value="100" />
       </label>
       <br />
       <button type="button" id="downloadPdf">Download PDF</button>
