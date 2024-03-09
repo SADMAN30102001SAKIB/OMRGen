@@ -29,7 +29,7 @@ input[type="text"] {
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: calc(100% - 18px);
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -37,6 +37,7 @@ button {
   background-color: #007bff;
   color: white;
   padding: 10px 15px;
+  margin: 0 32%;
   border: none;
   border-radius: 5px;
   cursor: pointer;
