@@ -6,6 +6,10 @@ document
     const formData = new FormData(document.getElementById("pdfForm"));
 
     const data = {
+      iName: formData.get("iName"),
+      isIUnderline: formData.get("isIUnderline") === "true",
+      pName: formData.get("pName"),
+      isPUnderline: formData.get("isPUnderline") === "true",
       isName: formData.get("isName") === "true",
       isRoll: formData.get("isRoll") === "true",
       rollDigit: formData.get("rollDigit"),
@@ -14,20 +18,25 @@ document
     };
 
     if (
+      data.iName != "" &&
+      data.pName != "" &&
       parseInt(data.rollDigit) >= 1 &&
       parseInt(data.rollDigit) <= 11 &&
       parseInt(data.setCount) >= 1 &&
       parseInt(data.setCount) <= 4 &&
       parseInt(data.questionsCount) >= 1 &&
-      parseInt(data.questionsCount) <= 35
+      parseInt(data.questionsCount) <= 100
     ) {
-      fetch("https://sadman30102001.pythonanywhere.com/generate-pdf", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
+      fetch(
+        "https://c3abb519-27fd-46fd-ac90-0174997a8c66-00-1wsfwfuwujsq3.kirk.replit.dev/generate-pdf",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      )
         .then((response) => response.blob())
         .then((blob) => {
           const url = window.URL.createObjectURL(blob);
@@ -41,6 +50,22 @@ document
         })
         .catch((error) => console.log("Error:", error));
     } else {
-      alert("Please enter valid inputs");
+      alert("Please enter inputs carefully");
     }
   });
+
+document.getElementById("rollBox1").addEventListener("click", () => {
+  if (document.getElementById("rollBox1").checked) {
+    document.getElementById("rollDigit").style.display = "block";
+  } else {
+    document.getElementById("rollDigit").style.display = "none";
+  }
+});
+
+document.getElementById("rollBox2").addEventListener("click", () => {
+  if (document.getElementById("rollBox1").checked) {
+    document.getElementById("rollDigit").style.display = "block";
+  } else {
+    document.getElementById("rollDigit").style.display = "none";
+  }
+});
