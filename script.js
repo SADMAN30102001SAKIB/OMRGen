@@ -4,6 +4,9 @@ document
     event.preventDefault();
 
     const formData = new FormData(document.getElementById("pdfForm"));
+    var string = "";
+    document.getElementById("downloadPdf").innerText = "Loading PDF" + string;
+    var flag = true;
 
     const data = {
       iName: formData.get("iName"),
@@ -25,18 +28,26 @@ document
       parseInt(data.setCount) >= 1 &&
       parseInt(data.setCount) <= 4 &&
       parseInt(data.questionsCount) >= 1 &&
-      parseInt(data.questionsCount) <= 100
+      parseInt(data.questionsCount) <= 100 &&
+      flag
     ) {
-      fetch(
-        "https://sadman30102001.pythonanywhere.com/generate-pdf",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
+      flag = false;
+      var i = 0;
+      var ref = setInterval(() => {
+        string += ". ";
+        if (string.length > 6) {
+          string = "";
         }
-      )
+        document.getElementById("downloadPdf").innerText =
+          "Loading PDF" + string;
+      }, 1000);
+      fetch("https://sadman30102001.pythonanywhere.com/generate-pdf", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
         .then((response) => response.blob())
         .then((blob) => {
           const url = window.URL.createObjectURL(blob);
@@ -47,10 +58,16 @@ document
           a.click();
           window.URL.revokeObjectURL(url);
           document.body.removeChild(a);
+          clearInterval(ref);
+          document.getElementById("downloadPdf").innerText = "Download PDF";
+          flag = true;
         })
         .catch((error) => console.log("Error:", error));
     } else {
       alert("Please enter inputs carefully");
+      clearInterval(ref);
+      document.getElementById("downloadPdf").innerText = "Download PDF";
+      flag = true;
     }
   });
 
