@@ -5,7 +5,7 @@ document
 
     const formData = new FormData(document.getElementById("pdfForm"));
     var string = "";
-    document.getElementById("downloadPdf").innerText = "Loading PDF" + string;
+    document.getElementById("downloadPdf").innerText = "Loading" + string;
     var flag = true;
 
     const data = {
@@ -39,7 +39,7 @@ document
           string = "";
         }
         document.getElementById("downloadPdf").innerText =
-          "Loading PDF" + string;
+          "Loading" + string;
       }, 1000);
       fetch("https://sadman30102001.pythonanywhere.com/generate-pdf", {
         method: "POST",
