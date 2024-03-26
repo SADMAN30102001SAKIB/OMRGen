@@ -48,7 +48,10 @@ document
         },
         body: JSON.stringify(data),
       })
-        .then((response) => response.blob())
+        .then(response => {
+          alert("got it");
+          return response.blob();
+        })
         .then((blob) => {
           const url = window.URL.createObjectURL(blob);
           const a = document.createElement("a");
