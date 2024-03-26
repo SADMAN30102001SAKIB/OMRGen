@@ -34,7 +34,7 @@ document
       flag = false;
       var i = 0;
       var ref = setInterval(() => {
-        string += ". ";
+        string += " .";
         if (string.length > 6) {
           string = "";
         }
